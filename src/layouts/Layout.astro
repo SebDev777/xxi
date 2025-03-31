@@ -1,3 +1,7 @@
+---
+import Navbar from "../components/Navbar";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -17,8 +21,10 @@
 
 <style is:global>
 	:root {
-		--main-gradient: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		--main-color: #ed73be;
+		--first-color: #d83333;
+		--second-color: #f041ff; 
+		--main-gradient: linear-gradient(14deg, var(--first-color) 0%, var(--second-color) 100%);
+		--main-color: #f041ff;
 	}
 	html,
 	body {
@@ -28,11 +34,132 @@
 		height: 100%;
 	}
 
+	.logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1.5em;
+        margin-left: 50px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgb(255, 255, 255);
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        backdrop-filt: blur(50px)
+        -webkit-backdrop-filter: blur(50px);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    li a:hover {
+        background: linear-gradient(14deg, var(--first-color) 0%, var(--second-color) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit
+    }
+
+    .list {
+        list-style: none;
+        display: flex;
+        gap: 15%;
+        margin-right: 10vw;
+    }
+
+    li a:hover {
+        transition: background 0.3s ease-in-out, -webkit-text-fill-color 0.3s ease-in-out;
+    }
+
+    #toggler, 
+    .navbar label {
+        display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        .menu {
+            width: 100%
+            max-height: 0;
+            overflow: hidden;
+        }
+        .list {
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .navbar label {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #toggler:checked ~ .menu {
+            max-height: 100%;
+        }
+    }
+
 	.gradient-text {
 		background: var(--main-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+	}
+
+	@keyframes gradient-border {
+		0%, 50%, 100% {
+			border-color: var(--first-color);
+		}
+		25%, 75% {
+			border-color: var(--second-color);
+		}
+	}
+
+	.hover-anim {
+		transition: all 0.3s ease-in-out;
+	}
+
+	.hover-anim:hover {
+		background-color: rgba(255, 255, 255, 0.8);
+		box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+		transition: all 0.3s ease-in-out;
+		transform: scale(1.02) translateY(10px);
+		border: 2px solid transparent;
+		animation: gradient-border 3s linear infinite;
+
+		& h2 {
+			background: var(--main-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+
+	.hover-anim:not(:hover) {
+		background-color: rgba(255, 255, 255, 0.7);
+		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+		transition: all 0.3s ease-in-out;
+		transform: scale(1);
+
+		& h2 {
+			background: #111827;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			transition: all 0.3s ease-in-out;
+		}
 	}
 
 	pre {

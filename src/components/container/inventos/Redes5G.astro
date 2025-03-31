@@ -1,0 +1,30 @@
+---
+import tower from 'src/assets/tower.png';
+import downarrow from 'src/assets/down-arrow.png';
+import { InventosUtils } from '../../../scripts/utils';
+import { redes5g } from '../../../scripts/listas';
+---
+
+<div class="Redes5G">
+    <div class="title">
+        <img src={tower.src} alt="tower"/>
+        <h1>Redes 5G:</h1>
+    </div>
+    <div class="visuals">
+        <div class="list">
+            <img src={downarrow.src} alt="downarrow" class="arrow up"/>
+            <p>Velocidad</p>
+        </div>
+        <div class="list">
+            <img src={downarrow.src} alt="downarrow" class="arrow down"/>
+            <p>Latencia</p>
+        </div>
+        <div class="list">
+            <img src={downarrow.src} alt="downarrow" class="arrow up"/>
+            <p>Capacidad</p>
+        </div>
+    </div>
+    <ul>
+        <InventosUtils list={redes5g} />
+    </ul>
+</div>

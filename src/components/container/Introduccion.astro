@@ -1,25 +1,42 @@
+---
+const cards = [
+	{
+		title: "Características",
+		items: [
+			"Automatización: Aumento en la productividad, pero tambíen ha cambiado el panorama laboral",
+			"Acceso: El acceso a internet y la tecnología móvil han interconectado a personas y empresas en todo el mundo"
+		]
+	},
+	{
+		title: "Impacto",
+		items: [
+			"Sensores y dispositivos inteligentes que monitorean la salud en tiempo real",
+			"El desarrollo de plataformas digitales ha permitido la globalización de los negocios",
+			"Software para optimizar el uso de recursos y reducir el impacto ecológico"
+		]
+	}
+]
+---
+
 <div class="container">
-    <h2 class="description">
-        A continuación se presentan los avances tecnológicos y científicos más relevantes del siglo XXI, que han transformado la forma en que vivimos, trabajamos y nos comunicamos. Desde la inteligencia artificial hasta la biotecnología, estos avances han tenido un impacto significativo en nuestra sociedad y continúan moldeando nuestro futuro.
-        Esta página web tiene como objetivo proporcionar una visión general de los avances tecnológicos y científicos más importantes del siglo XXI. A través de una serie de secciones, exploraremos diferentes áreas de la tecnología y la ciencia, destacando los hitos más significativos y su impacto en nuestra vida cotidiana.
+    <h2 class="description hover-anim">
+        A continuación se presentan los avances tecnológicos y científicos más relevantes del siglo XXI <span class="gradient-text">(2000 - actualidad)</span>, que han transformado la forma en que vivimos, trabajamos y nos comunicamos. Desde la <span class="gradient-text">inteligencia artificial</span> hasta la <span class="gradient-text">biotecnología</span>, estos avances han tenido un impacto significativo en nuestra sociedad y continúan moldeando nuestro futuro.
+        Esta página web tiene como propósito informar acerca de los avances tecnológicos y científicos más importantes del siglo XXI.
     </h2>
 
     <div class="cards">
-        <div class="card">
-            <h2>Características</h2>
-            <ul>
-                <li><span class="gradient-text">Automatización:</span> Aumento en la productividad, pero tambíen ha cambiado el panorama laboral</li>
-                <li><span class="gradient-text">Acceso:</span> El acceso a internet y la tecnología móvil han interconectado a personas y empresas en todo el mundo</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h2>Impacto</h2>
-            <ul>
-                <li>Sensores y dispositivos inteligentes que monitorean la salud en tiempo real</li>
-                <li>El desarrollo de plataformas digitales ha permitido la globalización de los negocios</li>
-                <li>Software para optimizar el uso de recursos y reducir el impacto ecológico</li>
-            </ul>
-        </div>
+		{
+			cards.map(card => (
+				<div class="card hover-anim">
+					<h2>{card.title}</h2>
+					<ul>
+						{card.items.map(item => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</div>
+			))
+		}
     </div>
 </div>
 
@@ -55,34 +72,6 @@
 		& ul li {
 			text-align: left;
 		}
-	}
-
-	.card:hover {
-		& h2 {
-			background: var(--main-gradient);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
-			transition: all 0.3s ease-in-out;
-		}
-		background-color: rgba(255, 255, 255, 0.8);
-		box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-		transition: all 0.3s ease-in-out;
-		transform: scale(1.02);
-	}
-
-	.card:not(:hover) {
-		& h2 {
-			background: #111827;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
-			transition: all 0.3s ease-in-out;
-		}
-		background-color: rgba(255, 255, 255, 0.7);
-		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-		transition: all 0.3s ease-in-out;
-		transform: scale(1);
 	}
 
 	.card ul li::marker {
