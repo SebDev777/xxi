@@ -1,0 +1,34 @@
+{
+    <div class="rows">
+        <slot />
+    </div>
+}
+
+<style is:global>
+    .rows {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: top;
+        flex-direction: row;
+        gap: 2%;
+        text-align: justify;
+    }
+
+    .row {
+        width: 40vw;
+    }
+    
+    @media screen and (max-width: 900px) {
+        .rows {
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row {
+            width: 90%;
+        }
+    }
+</style>

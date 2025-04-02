@@ -1,0 +1,45 @@
+---
+import microchip from 'src/assets/microchip.png';
+import ListaDeEjemplos from '@components/ListaDeEjemplos.astro';
+import Cartas from '@components/Cartas.astro';
+import Descripcion from '@components/Descripcion.astro';
+import Fila from "@components/Fila.astro"
+import Filas from '@components/Filas.astro';
+import Titulo from '@components/Titulo.astro';
+
+import { ia } from '@scripts/listas/index';
+
+const {ejemplos, importancia, desafios, modelos} = ia
+
+const description = "La inteligencia artificial es un campo de la informática que se centra en la creación de sistemas y algoritmos capaces de realizar tareas que requieren inteligencia humana, como el aprendizaje, el razonamiento y la toma de decisiones. La IA se basa en técnicas como el aprendizaje automático, el procesamiento del lenguaje natusyral y la visión por computadora para desarrollar aplicaciones en diversas áreas, como la medicina, la automoción, la atención al cliente y el entretenimiento. La IA está transformando la forma en que interactuamos con la tecnología y tiene el potencial de revolucionar múltiples industrias."
+---
+
+<section class="InteligenciaArtificial">
+    <Titulo img={microchip.src} text="Inteligencia Artificial (IA):" />
+    <Filas>
+        <Fila>
+            <Descripcion description={description}>
+                <b class="gradient-text">Ejemplos:</b></p>
+                <ListaDeEjemplos list={ejemplos} />
+            </Descripcion>
+        </Fila>
+        <Fila>
+            <h2><b>Importancia:</b></h2>
+            <ListaDeEjemplos list={importancia} />
+            <h2><b>Desafíos éticos:</b></h2>
+            <ListaDeEjemplos list={desafios} />
+        </Fila>
+    </Filas>
+    <h2 class="subtitle"><b>Modelos:</b></h1>
+    <Cartas list={modelos} />
+</section>
+
+<style>
+    .subtitle {
+        align-self: center;
+        justify-self: center;
+        margin-top: 5vh;
+        margin-bottom: auto;
+        font-size: x-large;
+    }
+</style>

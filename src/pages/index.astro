@@ -1,14 +1,12 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from '../components/Header.astro';
-import Container from '../components/Container.astro';
-import Layout from '../layouts/Layout.astro';
-import Navbar from "../components/Navbar";
+import Contenido from "@components/index/Contenido.astro";
+import PieDePagina from "@components/index/PieDePagina.astro";
+import Encabezado from "@components/index/Encabezado.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout>
-	<Navbar section={"inicio"} />
-	<Header />
-	<Container />
-	<Footer />
+<Layout section={"inicio"}>
+	<Encabezado />
+	<Contenido />
+	<PieDePagina />
 </Layout>

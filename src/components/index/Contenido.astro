@@ -1,16 +1,17 @@
 ---
 import InventosLayout from "./container/InventosLayout.astro"
 import Introduccion from "./container/Introduccion.astro";
-import LineaTiempo from "./container/LineaTiempo.astro";
+import LineaTiempo from "@components/LineaTiempo.astro";
+
+import { lineatiempo } from "@scripts/listas/index/lineatiempo";
 ---
 
-<div id="container">
+<main id="container">
 	<Introduccion />
-	<LineaTiempo />
-
+	<LineaTiempo name="Algunos de los avances tecnológicos y científicos más importantes del siglo XXI" content={lineatiempo} />
 	<h1 class="title">Principales inventos</h1>
 	<InventosLayout />
-</div>
+</main>
 
 <style>
 	.container {

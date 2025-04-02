@@ -1,49 +1,35 @@
 ---
-import { lineatiempo } from "../../scripts/listas/lineatiempo";
-import TimeLine from "./TimeLine";
+import SeccionLineaTiempo from './lineatiempo/SeccionLineaTiempo.astro'
+
+interface Props {
+    name: string,
+    content: Array<{title: string, description: string}>
+}
+
+const { name, content } = Astro.props
 ---
 
+<!-- Secuencia de la linea de tiempo 
+timeline-empty
+timeline-middle (timeline-circle)
+timeline-component
+--
+timeline-component
+timeline-middle
+timeline-empty
+-->
 <section class="design-section">
-    <h1 class="gradient-text time-line-title">
-        Algunos de los avances tecnológicos y científicos más importantes del siglo XXI
-    </h1>
+    <h1 class="gradient-text time-line-title">{name}</h1>
     <div class="timeline">
         {
-            lineatiempo.map((item, index) => {
-                return index % 2 === 0 ? (
-                    <TimeLine inversed={false} info={item} />
-                ) : (
-                    <TimeLine inversed={true} info={item} />
-                );
-            })
+            content.map((item, index) => (
+                <SeccionLineaTiempo inversed={index % 2 !== 0} info={item} />
+            ))
         }
-        <!-- Secuencia de la linea de tiempo 
-        timeline-empty
-        timeline-middle (timeline-circle)
-        timeline-component
-        --
-        timeline-component
-        timeline-middle
-        timeline-empty
-        */
-        -->
     </div>
 </section>
 
 <style is:global>
-    .time-line-title {
-        justify-self: center;
-        align-self: center;
-        margin: 2vh; 
-        text-align: center;
-        font-size: 2.5em;
-        width: 80vw;
-    }
-
-    .timeline-content p {
-        color: white;
-    }
-
     .design-section {
         display: flex;
         flex-direction: column;
@@ -55,10 +41,13 @@ import TimeLine from "./TimeLine";
         margin-bottom: 10vh;
     }
 
-    .design {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .time-line-title {
+        justify-self: center;
+        align-self: center;
+        margin: 2vh; 
+        text-align: center;
+        font-size: 2.5em;
+        width: 80vw;
     }
 
     .timeline {
@@ -70,9 +59,13 @@ import TimeLine from "./TimeLine";
         flex-direction: column;
     }
 
+    .timeline-content p {
+        color: var(--text-color);
+    }
+
     .timeline-content {
         padding: 20px;
-        background: #242020;
+        background: var(--background-color3);
         /* difuse a bit the shadow */
         -webkit-box-shadow: 0 10px 10px 2px rgba(154, 154, 154, 0.05);
         border-radius: 5px;

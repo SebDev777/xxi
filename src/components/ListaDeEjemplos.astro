@@ -1,0 +1,23 @@
+---
+interface Props {
+    list: Array<{title: string, description: string}>
+}
+
+const { list } = Astro.props
+---
+
+<ul>
+    {
+        list.map(item => (
+            <li>
+                <span class="gradient-text">{item.title}:</span> {item.description}
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    ul, li {
+        transition: all 0.3s ease-in-out;
+    }
+</style>

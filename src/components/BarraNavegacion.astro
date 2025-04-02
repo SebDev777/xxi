@@ -1,0 +1,108 @@
+---
+interface Props {
+    section: string
+}
+
+const { section } = Astro.props
+---
+
+<nav class="navbar">
+    <a href="/">
+        <div class="logo-container">
+            <h3 class="gradient-text">SIGLO XXI</h3>
+        </div>
+    </a>
+    <slot />
+    <div class="menu">
+        <ul class="list">
+            <li><a href="/" class={section==="inicio" ? "gradient-text": ""}>INICIO</a></li>
+            <li><a href="/about" class={section==="sobre" ? "gradient-text": ""} >SOBRE</a></li>
+            <li><a href="/credits" class={section==="creditos" ? "gradient-text": ""}>CREDITOS</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style is:global>
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 1.5em;
+        margin-left: 50px;
+    }
+
+    .navbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--background-color);
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        backdrop-filt: blur(50px)
+        -webkit-backdrop-filter: blur(50px);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .list {
+        list-style: none;
+        display: flex;
+        gap: 15%;
+        margin-right: 10vw;
+    }
+
+    .menu {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    li a:hover {
+        background: linear-gradient(14deg, var(--first-color) 0%, var(--second-color) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transition: background 0.3s ease-in-out, -webkit-text-fill-color 0.3s ease-in-out;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit
+    }
+
+    @media screen and (max-width: 600px) {
+        .menu {
+            justify-self: center;
+            align-self: center;
+            width: 100%
+            max-height: 0;
+            overflow: hidden;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .list {
+            margin: auto;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo-container {
+            margin: auto;
+            justify-self: center;
+            align-self: center;
+        }
+        .navbar {
+            flex-direction: column;
+        }
+        .navbar label {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    }
+</style>

@@ -1,0 +1,25 @@
+---
+interface Props {
+    img?: string,
+    text: string
+}
+
+const { img, text } = Astro.props
+---
+
+<div class="title">
+    {
+        img && <img src={img} alt={img}>
+    }
+    <h1>{text}</h1>
+</div>
+
+<style>
+    .title {
+        background-color: var(--background-color);
+        width: fit-content;
+        padding: 1%;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+    }
+</style>

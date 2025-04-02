@@ -1,26 +1,26 @@
-<nav class="navbar">
+<footer class="footer">
     <h2>
         Gracias por leer!
     </h2>
-</nav>
+</footer>
 
-<style>
-    .navbar {
+<style is:global>
+    .footer {
         text-align: center;
         justify-content: center;
         align-items: center;
         display: flex;
         position: sticky;
         width: 100%;
-        background-color: #fff; /* Adjust as needed */
-        z-index: 1000; /* Ensure it stays above other elements */
-        background-color: rgb(255, 255, 255);
+        background-color: var(--background-color);
+        z-index: 1000;
         backdrop-filt: blur(50px)
         -webkit-backdrop-filter: blur(50px);
         box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
     }
 
-    .navbar h2 {
+    .footer h2 {
         font-size: 1.5em;
         margin: 0;
         padding: 10px;

@@ -1,0 +1,32 @@
+---
+interface Props {
+    description: string
+}
+
+const { description } = Astro.props
+
+const parentesis = (texto: string) => texto.startsWith("(") && texto.endsWith(")")
+---
+
+<div class="description hover-anim">
+    <p>
+        {description.split(/(\(.*?\))/g).map(texto =>
+            parentesis(texto) ? (
+                <span class="gradient-text">{texto}</span>
+            ) : (
+                texto
+            )
+        )}
+        <slot />
+    </p>
+</div>
+
+<style>
+    .description {
+        background: url("src/assets/background.svg") no-repeat center fixed;
+		box-shadow: 0 10px 10px var(--text-color);
+		border-radius: 10px;
+		padding: 20px;
+		margin: 20px;
+    }
+</style>

@@ -1,0 +1,33 @@
+---
+import dron from '@assets/drop.png';
+import ListaDeEjemplos from '@components/ListaDeEjemplos.astro';
+import Descripcion from '@components/Descripcion.astro';
+import Titulo from '@components/Titulo.astro';
+import Fila from '@components/Fila.astro';
+import Filas from '@components/Filas.astro';
+
+import { drones } from '@scripts/listas/index';
+
+const {ejemplos, importancia, aplicaciones} = drones
+
+const descripcion = "Los drones son vehículos aéreos no tripulados que se controlan de forma remota o de manera autónoma. Se utilizan en diversas aplicaciones, como la fotografía aérea, la entrega de paquetes, la vigilancia y la agricultura. Los drones están equipados con tecnología avanzada, como cámaras, sensores y sistemas de navegación, lo que les permite realizar tareas complejas y recopilar datos en tiempo real. La popularidad de los drones ha crecido en los últimos años debido a su versatilidad y accesibilidad."
+---
+
+<section class="Drones">
+    <Titulo img={dron.src} text="Drones:" />
+    <Filas>
+        <Fila>
+            <p>{descripcion}</p>
+            <b class="gradient-text">Ejemplos:</b></p>
+            <ListaDeEjemplos list={ejemplos} />
+        </Fila>
+        <Fila>
+            <Descripcion description=''>
+                <h2><b>Aplicaciones:</b></h2>
+                <ListaDeEjemplos list={aplicaciones} />
+                <h2><b>Importancia:</b></h2>
+                <ListaDeEjemplos list={importancia} />
+            </Descripcion>
+        </Fila>
+    </Filas>
+</section>

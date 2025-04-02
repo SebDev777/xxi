@@ -1,0 +1,40 @@
+---
+import Cartas from "@components/Cartas.astro"
+
+const cartas = [
+	{
+		name: "Características",
+		items: [
+			"Automatización: Aumento en la productividad, pero tambíen ha cambiado el panorama laboral",
+			"Acceso: El acceso a internet y la tecnología móvil han interconectado a personas y empresas en todo el mundo"
+		]
+	},
+	{
+		name: "Impacto",
+		items: [
+			"Sensores y dispositivos inteligentes que monitorean la salud en tiempo real",
+			"El desarrollo de plataformas digitales ha permitido la globalización de los negocios",
+			"Software para optimizar el uso de recursos y reducir el impacto ecológico"
+		]
+	}
+]
+---
+
+<section class="container">
+	<Cartas list={cartas} />
+</section>
+
+<style>
+	.container {
+		width: 90vw;
+		justify-content: center;
+		align-items: center;
+        justify-self: center;
+        margin-top: 5vh;
+        text-align: justify;
+	}
+	.card ul li::marker {
+		color: var(--main-color);
+	}
+
+</style>

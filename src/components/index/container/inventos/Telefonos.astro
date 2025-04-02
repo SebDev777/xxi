@@ -1,0 +1,11 @@
+---
+import smartphone from "src/assets/smartphone.png";
+import {smartphones} from "@scripts/listas/index"
+import Cartas from "@components/Cartas.astro";
+import Titulo from "@components/Titulo.astro";
+---
+
+<section class="Telefonos">
+    <Titulo img={smartphone.src} text="Teléfonos móviles:" />
+    <Cartas list={smartphones} />  
+</section>

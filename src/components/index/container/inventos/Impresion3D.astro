@@ -1,0 +1,38 @@
+---
+import printing from '@assets/3d-printing.png';
+import { impresion3d } from '@scripts/listas/index';
+import ListaDeEjemplos from '@components/ListaDeEjemplos.astro';
+import Cartas from '@components/Cartas.astro';
+import Descripcion from '@components/Descripcion.astro';
+import Titulo from '@components/Titulo.astro';
+const {tipos, avances} = impresion3d
+
+const description = `La impresión 3D es una tecnología que permite crear objetos tridimensionales a partir de un modelo digital. Utiliza un proceso de fabricación aditiva, donde se añaden capas sucesivas de material para construir el objeto. Esta tecnología ha revolucionado la forma en que se diseñan y fabrican productos en diversas industrias, desde la medicina hasta la automoción y la arquitectura.`
+---
+
+<section class="Impresion3D">
+    <Titulo img={printing.src} text="Impresión 3D:" />
+    <Descripcion description={description}>
+        <b class="gradient-text">Algunos tipos:</b></p>
+    </Descripcion>
+    <Cartas list={tipos} />
+
+    <h2><b>Avances:</b></h2>
+    <ListaDeEjemplos list={avances} />
+</section>
+
+<style is:global>
+    .Impresion3D .cards .card {
+        font-size: 14px;
+        padding: 10px;
+        margin: 10px;
+        min-height: 80px;
+        max-width: 250px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .Impresion3D {
+            width: 70vw;
+        }
+    }
+</style>
