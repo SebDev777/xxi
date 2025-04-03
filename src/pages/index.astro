@@ -1,12 +1,16 @@
 ---
 import Contenido from "@components/index/Contenido.astro";
 import PieDePagina from "@components/index/PieDePagina.astro";
-import Encabezado from "@components/index/Encabezado.astro";
+import Encabezado from "@components/Encabezado.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout section={"inicio"}>
-	<Encabezado />
+	<Encabezado description="">
+		<h1 class="main-title">
+			AVANCES TECNOLÓGICOS Y CIENTÍFICOS DEL <span class="gradient-text">SIGLO XXI</span>
+		</h1>
+	</Encabezado>
 	<Contenido />
 	<PieDePagina />
 </Layout>

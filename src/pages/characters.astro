@@ -1,0 +1,14 @@
+---
+import Layout from "@layouts/Layout.astro";
+import CharactersList from "@components/characters/CharactersList.astro";
+import Encabezado from "@components/Encabezado.astro";
+---
+
+<Layout section={"personajes"} >
+    <Encabezado description="Descripcion de los personajes más influyentes del siglo XXI">
+        <h1 class="main-title">
+            PERSONAJES INFLUYENTES DEL <span class="gradient-text">SIGLO XXI</span>
+        </h1>
+    </Encabezado>
+    <CharactersList />
+</Layout>
