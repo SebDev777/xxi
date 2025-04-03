@@ -4,7 +4,7 @@ import ListaDeEjemplos from '@components/ListaDeEjemplos.astro';
 import Descripcion from '@components/Descripcion.astro';
 import Titulo from '@components/Titulo.astro';
 
-import { realidad_aumentada } from '@scripts/listas/index';
+import { realidadaumentada } from '@scripts/index/listas/index';
 
 const description = `Tecnología que superpone elementos digitales (imagenes, texto, modelos 3D) en el mundo real a través de dispositivos móviles y lentes inteligentes. La RA combina el mundo físico y digital, permitiendo la interacción en tiempo real con objetos virtuales, se utiliza en aplicaciones de entretenimiento, educación, medicina y marketing, mejorando la experiencia del usuario y facilitando el aprendizaje, esta se basa en tecnologías como la visión por computadora, el reconocimiento de patrones y la geolocalización para identificar y superponer información digital en el entorno real.`
 ---
@@ -13,6 +13,6 @@ const description = `Tecnología que superpone elementos digitales (imagenes, te
     <Titulo img={augmentedreality.src} text='Realidad aumentada (RA):' />
     <Descripcion description={description}>
         <b class="gradient-text">Ejemplos:</b></p>
-        <ListaDeEjemplos list={realidad_aumentada} />
+        <ListaDeEjemplos list={realidadaumentada} />
     </Descripcion>
 </section>

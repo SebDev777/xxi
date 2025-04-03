@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
     integrations: [react()],
+    site: "https://sebdev777.github.io",
     vite: {
         resolve: {
           alias: {

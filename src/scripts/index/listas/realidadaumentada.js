@@ -1,4 +1,4 @@
-export const realidad_aumentada = [
+export const realidadaumentada = [
     {
         title: "Pokémon GO",
         description: "Juego de realidad aumentada que permite a los jugadores capturar criaturas virtuales en el mundo real utilizando la cámara de su dispositivo móvil.",

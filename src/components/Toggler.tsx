@@ -27,26 +27,17 @@ export default function Toggler() {
 
     // Load state from localStorage when the component mounts
     useEffect(() => {
-        const savedState = localStorage.getItem("darkMode") === "active";
+        const item = localStorage.getItem("darkMode")
+        const savedState = item ? (item === "active") : false;
         setIsChecked(savedState);
-        console.log("DARKMODE ACTIVE")
     }, []);
 
     useEffect(() => {
-        if (isChecked) {
-            localStorage.setItem("darkMode", "active")
-            colores.dark.forEach(val => {
-                const [prop, value] = val
-                setProperty(prop, value)
-            })
-        } else {
-            localStorage.setItem("darkMode", "inactive")
-            colores.light.forEach(val => {
-                const [prop, value] = val
-                setProperty(prop, value)
-            })
-        }
-        console.log(isChecked)
+        localStorage.setItem("darkMode", isChecked ? "active" : "inactive")
+        colores[isChecked ? "dark" : "light"].forEach(val => {
+            const [prop, value] = val
+            setProperty(prop, value)
+        })
     }, [isChecked])
 
     // Save state to localStorage when changed
