@@ -1,6 +1,8 @@
 ---
 interface Props {
-    list: Array<{name: string, description?: string, items?: string[]}>
+    list: Array<{
+        name: string, description?: string, items?: string[]
+    }>
 }
 
 const { list } = Astro.props
@@ -10,6 +12,7 @@ const { list } = Astro.props
     {list.map(item => (
         <div class="card hover-anim">
             <h3>{item.name}</h3>
+            <slot />
             {item.description && <p>{item.description}</p>}
             {item.items && (
                 <ul class="card-ul">

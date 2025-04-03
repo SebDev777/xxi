@@ -51,5 +51,5 @@ export const lineatiempo = [
     {
         title: "2025 (proyección): Avances hacia la IA general",
         description: "Se espera que la investigación y el desarrollo en inteligencia artificial continúe avanzando hacia la creación de IA más autónomas y complejas, posiblemente acercándose a la inteligencia artificial general (AGI), que podría realizar tareas más complejas con menos intervención humana."
-    }
+    },
 ];
