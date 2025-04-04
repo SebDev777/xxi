@@ -1,10 +1,12 @@
 ---
 import printing from '@assets/3d-printing.png';
-import { impresion3d } from '@scripts/index/listas/index';
 import ListaDeEjemplos from '@components/ListaDeEjemplos.astro';
 import Cartas from '@components/Cartas.astro';
 import Descripcion from '@components/Descripcion.astro';
 import Titulo from '@components/Titulo.astro';
+
+import { impresion3d } from '@scripts/index/listas/index';
+
 const {tipos, avances} = impresion3d
 
 const description = `La impresión 3D es una tecnología que permite crear objetos tridimensionales a partir de un modelo digital. Utiliza un proceso de fabricación aditiva, donde se añaden capas sucesivas de material para construir el objeto. Esta tecnología ha revolucionado la forma en que se diseñan y fabrican productos en diversas industrias, desde la medicina hasta la automoción y la arquitectura.`

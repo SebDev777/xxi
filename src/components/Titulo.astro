@@ -1,16 +1,14 @@
 ---
 interface Props {
-    img?: string,
-    text: string
+    img?: string;
+    text: string;
 }
 
-const { img, text } = Astro.props
+const { img, text } = Astro.props;
 ---
 
 <div class="title">
-    {
-        img && <img src={img} alt={img}>
-    }
+    {img && <img src={img} alt={img} />}
     <h1>{text}</h1>
 </div>
 

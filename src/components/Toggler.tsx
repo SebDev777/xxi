@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-import "./styles/Toggler.css"
+import "./styles/Toggler.css";
 
 const colores = {
     dark: [
@@ -13,32 +13,32 @@ const colores = {
     light: [
         ["--background-color", "rgb(255, 255, 255)"],
         ["--background-color2", "rgb(239, 239, 239)"],
-        ["--background-color3","rgb(232, 232, 232)"],
+        ["--background-color3", "rgb(232, 232, 232)"],
         ["--text-color", "rgb(27, 27, 27)"],
-    ]
-}
+    ],
+};
 
 const setProperty = (prop: string, value: string) => {
-    document.documentElement.style.setProperty(prop, value)
-}
+    document.documentElement.style.setProperty(prop, value);
+};
 
 export default function Toggler() {
     const [isChecked, setIsChecked] = useState(true);
 
     // Load state from localStorage when the component mounts
     useEffect(() => {
-        const item = localStorage.getItem("darkMode")
-        const savedState = item ? (item === "active") : false;
+        const item = localStorage.getItem("darkMode");
+        const savedState = item ? item === "active" : false;
         setIsChecked(savedState);
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("darkMode", isChecked ? "active" : "inactive")
-        colores[isChecked ? "dark" : "light"].forEach(val => {
-            const [prop, value] = val
-            setProperty(prop, value)
-        })
-    }, [isChecked])
+        localStorage.setItem("darkMode", isChecked ? "active" : "inactive");
+        colores[isChecked ? "dark" : "light"].forEach((val) => {
+            const [prop, value] = val;
+            setProperty(prop, value);
+        });
+    }, [isChecked]);
 
     // Save state to localStorage when changed
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,10 +48,15 @@ export default function Toggler() {
 
     return (
         <label className="toggle-switch">
-            <input type="checkbox" id="switch" checked={isChecked} onChange={handleChange} />
+            <input
+                type="checkbox"
+                id="switch"
+                checked={isChecked}
+                onChange={handleChange}
+            />
             <span className="slider">
-            <h3>{isChecked ? "DARK" : "LIGHT"}</h3>
+                <h3>{isChecked ? "DARK" : "LIGHT"}</h3>
             </span>
         </label>
-    )
+    );
 }
