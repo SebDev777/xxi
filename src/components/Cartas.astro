@@ -1,53 +1,112 @@
 ---
 interface Props {
     list: Array<{
-        name: string, description?: string, items?: string[]
-    }>
+        name: string;
+        description?: string;
+        items?: string[];
+        img?: string;
+    }>;
+    options?: {
+        type: string;
+        baseURL: string;
+        target?: string;
+    };
 }
 
-const { list } = Astro.props
+const { list, options } = Astro.props;
 ---
 
-<div class="cards">
-    {list.map(item => (
-        <div class="card hover-anim">
-            <h3>{item.name}</h3>
-            <slot />
-            {item.description && <p>{item.description}</p>}
-            {item.items && (
-                <ul class="card-ul">
-                    {
-                        item.items.map(list => (
+<div class={options && options.type === "link" ? "img-cards" : "cards"}>
+    {
+        list.map((item) => (
+            <div
+                class={`${options && options.type === "link" ? "img-card" : "card"} hover-anim`}
+            >
+                <h3>
+                    {options && options.type === "link" ? (
+                        <a
+                            href={options.baseURL + item.name}
+                            target={options.target || "_blank"}
+                        >
+                            {item.name}
+                        </a>
+                    ) : (
+                        item.name
+                    )}
+                </h3>
+                {item.img && (
+                    <img
+                        class="imagen-personaje"
+                        src={item.img}
+                        alt={item.name}
+                    />
+                )}
+                {item.description && (
+                    <p class="description">{item.description}</p>
+                )}
+                {item.items && (
+                    <ul class="card-ul">
+                        {item.items.map((list) => (
                             <li>{list}</li>
-                        ))
-                    }
-                </ul>
-            )}
-        </div>
-    ))}
+                        ))}
+                    </ul>
+                )}
+            </div>
+        ))
+    }
 </div>
 
 <style>
     .cards {
-		display: flex;
+        display: flex;
         flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		gap: 5%;
-		padding: 40px;
-	}
+        justify-content: center;
+        align-items: center;
+        gap: 5%;
+        padding: 40px;
+    }
 
     .card {
-		background-color: var(--background-color);
-		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-		border-radius: 10px;
-		padding: 20px;
-		margin: 20px;
+        background-color: var(--background-color);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px;
         max-width: 400px;
-		text-align: center;
-	}
+        text-align: center;
+    }
+
+    .description {
+        width: 90%;
+        margin: 15px auto;
+        padding-bottom: 15px;
+    }
 
     .card-ul li {
         text-align: left;
+    }
+
+    .img-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: top;
+        gap: 7%;
+        padding: 40px;
+    }
+    .img-card {
+        background-color: var(--background-color);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 20px;
+        width: 300px;
+        min-height: 300px;
+        text-align: center;
+    }
+    .imagen-personaje {
+        width: auto;
+        height: 200px;
+        border-radius: 15px;
     }
 </style>

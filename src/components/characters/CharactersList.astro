@@ -1,55 +1,10 @@
 ---
+import Cartas from "@components/Cartas.astro"
 import { lista } from "@scripts/listas/characters/index"
 ---
 
-<div class="cards">
-    {lista.map(item => (
-        <div class="card hover-anim">
-            <h3><a href={`https://es.wikipedia.org/wiki/${item.name}`} target="_blank">{item.name}</a></h3>
-            {item.img && <img class="imagen-personaje" src={item.img} />}
-            {item.description && <p class="description">{item.description}</p>}
-        </div>
-    ))}
-</div>
-
-<style>
-    .cards {
-		display: flex;
-        flex-wrap: wrap;
-		justify-content: center;
-		align-items: top;
-		gap: 7%;
-		padding: 40px;
-	}
-
-    .description {
-        width: 90%;
-        margin: 15px auto;
-        padding-bottom: 15px;
-    }
-
-    .card {
-		background-color: var(--background-color);
-		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-		border-radius: 10px;
-		padding: 10px;
-		margin: 20px;
-        width: 300px;
-        min-height: 300px;
-		text-align: center;
-	}
-
-    .card-ul li {
-        text-align: left;
-    }
-
-    .CharactersList {
-        margin-top: 25vh;
-    }
-
-    .imagen-personaje {
-        width: auto;
-        height: 200px;
-        border-radius: 15px;
-    }
-</style>
+<Cartas list={lista} options={{
+    type: "link",
+    baseURL: "https://es.wikipedia.org/wiki/",
+    target: "_blank",
+}} />
