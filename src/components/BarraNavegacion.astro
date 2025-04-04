@@ -31,18 +31,16 @@ const sections = [
     <div class="menu">
         <ul class="list">
             {
-                sections.map(item => {
-                    return (
-                        <li>
-                            <a 
-                                href={item.url} 
-                                class={section == item.section ? "gradient-text" : ""}
-                            >
-                                {item.section.toUpperCase()}
-                            </a>
-                        </li>
-                    )
-                })
+                sections.map(item => (
+                    <li>
+                        <a 
+                            href={item.url} 
+                            class={section == item.section ? "gradient-text" : ""}
+                        >
+                            {item.section.toUpperCase()}
+                        </a>
+                    </li>
+                ))
             }
         </ul>
     </div>
