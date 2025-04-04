@@ -4,6 +4,21 @@ interface Props {
 }
 
 const { section } = Astro.props
+
+const sections = [
+    {
+        url: "/",
+        section: "inicio"
+    },
+    {
+        url: "/characters",
+        section: "personajes"
+    },
+    {
+        url: "/bibliography",
+        section: "bibliografia"
+    },
+]
 ---
 
 <nav class="navbar">
@@ -15,9 +30,20 @@ const { section } = Astro.props
     <slot />
     <div class="menu">
         <ul class="list">
-            <li><a href="/" class={section==="inicio" ? "gradient-text": ""}>INICIO</a></li>
-            <li><a href="/about" class={section==="sobre" ? "gradient-text": ""} >SOBRE</a></li>
-            <li><a href="/credits" class={section==="creditos" ? "gradient-text": ""}>CREDITOS</a></li>
+            {
+                sections.map(item => {
+                    return (
+                        <li>
+                            <a 
+                                href={item.url} 
+                                class={section == item.section ? "gradient-text" : ""}
+                            >
+                                {item.section.toUpperCase()}
+                            </a>
+                        </li>
+                    )
+                })
+            }
         </ul>
     </div>
 </nav>

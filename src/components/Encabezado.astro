@@ -1,6 +1,12 @@
 ---
 import uscologo from '@assets/usco.svg';
 import background from '@assets/background.svg';
+
+interface Props {
+	description: string
+}
+
+const { description } = Astro.props
 ---
 
 <header id="container">
@@ -9,14 +15,8 @@ import background from '@assets/background.svg';
 		<section id="hero">
 			<div class="top-container">
 				<img class="usco-logo" src={uscologo.src} alt="Usco Logo" />
-				<h1 class="main-title">
-					AVANCES TECNOLÓGICOS Y CIENTÍFICOS DEL <span class="gradient-text">SIGLO XXI</span>
-				</h1>
-
-				<h2>
-					A continuación se presentan los avances tecnológicos y científicos más relevantes del siglo XXI <span class="gradient-text">(2000 - actualidad)</span>, que han transformado la forma en que vivimos, trabajamos y nos comunicamos. Desde la <span class="gradient-text">inteligencia artificial</span> hasta la <span class="gradient-text">biotecnología</span>, estos avances han tenido un impacto significativo en nuestra sociedad y continúan moldeando nuestro futuro.
-					Esta página web tiene como propósito informar acerca de los avances tecnológicos y científicos más importantes del siglo XXI.
-				</h2>
+				<slot />
+				<h2>{description}</h2>
 			</div>
 		</section>
 	</main>
