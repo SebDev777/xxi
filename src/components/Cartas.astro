@@ -5,11 +5,10 @@ interface Props {
         description?: string;
         items?: string[];
         img?: string;
-        url?: string;
     }>;
     options?: {
         type: string;
-        baseURL?: string;
+        baseURL: string;
         target?: string;
     };
 }
@@ -26,7 +25,7 @@ const { list, options } = Astro.props;
                 <h3>
                     {options && options.type === "link" ? (
                         <a
-                            href={options.baseURL ? `${options.baseURL}${item.name}` : item.url}
+                            href={options.baseURL + item.name}
                             target={options.target || "_blank"}
                         >
                             {item.name}
