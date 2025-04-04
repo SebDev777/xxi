@@ -1,12 +1,15 @@
 ---
+import BibliographyList from "@components/bibliography/BibliographyList.astro";
 import Encabezado from "@components/Encabezado.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout section={"bibliografia"} >
-    <Encabezado description="Descripcion de los personajes más influyentes del siglo XXI">
+    <Encabezado description="Descripcion de la bibliografia utilizada para la creación de esta página, incluyendo libros, artículos y recursos en línea.">
         <h1 class="main-title">
             PERSONAJES INFLUYENTES DEL <span class="gradient-text">SIGLO XXI</span>
         </h1>
     </Encabezado>
+
+    <BibliographyList />
 </Layout>

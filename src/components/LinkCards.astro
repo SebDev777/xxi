@@ -1,0 +1,66 @@
+---
+import rightarrow from "@assets/right-arrow.png";
+
+interface Props {
+    list: Array<{
+        name: string;
+        url: string;
+    }>;
+}
+
+const { list } = Astro.props;
+---
+
+<div class="cards">
+    {
+        list.map((item) => (
+            <button
+                class="card hover-anim"
+                onclick={`window.open('${item.url}', '_blank')`}
+            >
+                <h3>
+                    {item.name}
+                    <img
+                        src={rightarrow.src}
+                        alt="arrow-link"
+                        class="arrow-link"
+                    />
+                </h3>
+            </button>
+        ))
+    }
+</div>
+
+<style>
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        background-color: var(--background-color);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        width: 40vw;
+        text-align: center;
+        transition: transform 0.2s ease-in-out;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: top;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .card .arrow-link {
+        height: auto;
+        width: 20px;
+        margin-left: 5%;
+        /* If the theme is dark, invert the image color */
+        filter: invert(100%) hue-rotate(180deg);
+    }
+</style>
