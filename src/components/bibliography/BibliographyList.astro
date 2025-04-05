@@ -3,4 +3,13 @@ import LinkCards from "@components/LinkCards.astro";
 import { lista } from "@scripts/bibliography/index";
 ---
 
-<LinkCards list={lista} />
+<div class="BibliographyList">
+    <LinkCards list={lista} />
+</div>
+
+<style>
+    .BibliographyList {
+        margin-bottom: 10vh;
+        padding: 2rem;
+    }
+</style>

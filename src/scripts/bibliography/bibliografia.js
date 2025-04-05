@@ -15,4 +15,20 @@ export const lista = [
         name: "Inteligencia Artificial – ChatGPT (OpenAI)",
         url: "https://openai.com/chatgpt/overview/"
     },
+    {
+        name: "Dispositivos móviles",
+        url: "https://www.ub.edu/geocrit/sn/sn-170-7.htm "
+    },
+    {
+        name: "Inteligencia Artificial",
+        url: "https://nuso.org/articulo/la-inteligencia-artificial-el-superyo-del-siglo-xxi/"
+    },
+    {
+        name: "Modelado 3D",
+        url: "https://www.bicaalu.com/la-impresion-3d-mil-y-un-usos-de-la-revolucion-del-siglo-xxi"
+    },
+    {
+        name: "Tecnología 5G",
+        url: "https://www.syntonize.com/tecnologia-5-g-la-evolucion-de-la-conectividad"
+    }
 ]

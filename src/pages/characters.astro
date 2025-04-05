@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import CharactersList from "@components/characters/CharactersList.astro";
 import Encabezado from "@components/Encabezado.astro";
+import PieDePagina from "@components/PieDePagina.astro";
 ---
 
 <Layout section={"personajes"} >
@@ -11,4 +12,5 @@ import Encabezado from "@components/Encabezado.astro";
         </h1>
     </Encabezado>
     <CharactersList />
+    <PieDePagina />
 </Layout>
