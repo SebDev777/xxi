@@ -19,5 +19,14 @@ const { img, text } = Astro.props;
         padding: 1%;
         border-radius: 10px;
         transition: all 0.3s ease-in-out;
+        position: sticky;
+        top: 20vh;
+        z-index: 1;
+    }
+
+    @media screen and (max-width: 600px) {
+        .title {
+            top: 32vh;
+        }
     }
 </style>
